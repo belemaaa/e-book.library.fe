@@ -1,16 +1,49 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [phone_number, setPhone_number] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
+    const [error_message, setError_message] = useState('')
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const headers = {
+            'Content-Type': 'application/json'
+        }
+        try{
+            const response = await fetch('http://127.0.0.1/api/signup', {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify({
+                    username: username,
+                    password: password,
+                    email: email,
+                    phone_number: phone_number
+                }),
+            })
+            if (response.status === 200){
+                console.log('signup was successful')
+                navigate('/')
+            }
+            else{
+                console.log('an error was encountered.')
+                setError_message('An error occurred. Please try again later.')
+            }
+        }catch(error){
+            console.error('errors: ', error)
+        }
+    }
   return (
     <div className='flex flex-col items-center justify-center bg-black h-screen'>
         <div>
             <p className='text-green-700 text-3xl font-bold h-16'>Signup</p>
         </div>
         <form method='POST' className='flex flex-col'>
+            {error_message && <p className='text-white text-center font-thin'>{error_message}</p>}
             <input
                 type='text'
                 placeholder='Username'
