@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const Signup = () => {
     const [username, setUsername] = useState('')
@@ -28,7 +28,7 @@ const Signup = () => {
             })
             if (response.status === 200){
                 console.log('signup was successful')
-                navigate('/')
+                navigate('/home')
             }
         }catch(error){
             console.error('errors: ', error)
@@ -79,8 +79,8 @@ const Signup = () => {
             <div className='flex items-center justify-center'>
                 <button type='submit' className='bg-white p-2 w-32 rounded-lg text-black mt-8 font-semibold hover:bg-green-700 duration-300'>Proceed</button>
             </div>
-            
         </form>
+        <p className='text-green-700 mt-5'>Already have an account? Please <span><Link to='/login' className='underline hover:text-white'>log in</Link></span></p>
     </div>
   )
 }
