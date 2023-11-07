@@ -41,11 +41,11 @@ const Signup = () => {
             <p className='text-green-700 text-3xl font-bold h-16'>Signup</p>
         </div>
         <form method='POST' className='flex flex-col' onSubmit={handleSubmit}>
-        {error_message && <p className='text-white text-center font-thin'>{error_message}</p>}
+        {error_message && <p className='text-white text-center mb-5 font-[300] text-sm'>{error_message}</p>}
             <input
                 type='text'
                 placeholder='Username'
-                className='border-2 bg-black rounded-lg p-3 text-white w-[350px] md:w-[450px] mb-4'
+                className='border-r-2 border-l-2 border-b-2 bg-black rounded-lg p-3 text-white w-[350px] md:w-[450px] mb-4'
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
@@ -53,7 +53,7 @@ const Signup = () => {
             <input
                 type='password'
                 placeholder='Password'
-                className='border-2 bg-black rounded-lg p-3 text-white w-[350px] md:w-[450px] mb-4'
+                className='border-r-2 border-l-2 border-b-2 bg-black rounded-lg p-3 text-white w-[350px] md:w-[450px] mb-4'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -61,7 +61,7 @@ const Signup = () => {
             <input
                 type='email'
                 placeholder='Email'
-                className='border-2 bg-black rounded-lg p-3 text-white w-[350px] md:w-[450px] mb-4'
+                className='border-r-2 border-l-2 border-b-2 bg-black rounded-lg p-3 text-white w-[350px] md:w-[450px] mb-4'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -70,7 +70,7 @@ const Signup = () => {
             <input
                 type='phone_number'
                 placeholder='Phone number'
-                className='border-2 bg-black rounded-lg p-3 text-white w-[350px] md:w-[450px] mb-4'
+                className='border-r-2 border-l-2 border-b-2 bg-black rounded-lg p-3 text-white w-[350px] md:w-[450px] mb-4'
                 value={phone_number}
                 onChange={(e) => setPhone_number(e.target.value)}
                 required
